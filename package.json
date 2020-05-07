@@ -4,7 +4,7 @@
   "description": "helloworld",
   "main": "testServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node testServer.js"
   },
   "repository": {
     "type": "git",
