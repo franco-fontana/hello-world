@@ -1,0 +1,19 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "helloworld",
+  "main": "testServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franco-fontana/helloworld.git"
+  },
+  "author": "FF",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franco-fontana/helloworld/issues"
+  },
+  "homepage": "https://github.com/franco-fontana/helloworld#readme"
+}
