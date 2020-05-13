@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
     connStatus = "DB connection successful!!!";
   } else connStatus = "Connection Error!";
 
-  res.end("Hello World!!!! " + "Montevideo - " + "URUGUAY");
+  res.end("Hello World!!!! " + "Montevideo - " + "URUGUAY " + connStatus);
 });
 
 server.listen(port, hostname, () => {
