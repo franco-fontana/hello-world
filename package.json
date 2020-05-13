@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/franco-fontana/helloworld/issues"
   },
-  "homepage": "https://github.com/franco-fontana/helloworld#readme"
+  "homepage": "https://github.com/franco-fontana/helloworld#readme",
+  "dependencies": {
+    "mongoose": "^5.9.13"
+  }
 }
