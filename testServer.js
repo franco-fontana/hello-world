@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const http = require("http");
 
-const hostname = "127.0.0.1";
-//const hostname = "0.0.0.0";
-const port = 3000;
-//const port = 8080;
+//const hostname = "127.0.0.1";
+const hostname = "0.0.0.0";
+//const port = 3000;
+const port = 8080;
 var connOK = false;
 var connStatus = "";
 
@@ -13,8 +13,8 @@ const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/plain");
 
   mongoose
-    //.connect("mongodb://172.30.70.75:27017/roc-mongodb", {
-    .connect("mongodb://127.0.0.1:27017/tours", {
+    .connect("mongodb://172.30.70.75:27017/roc-mongodb", {
+      //    .connect("mongodb://127.0.0.1:27017/tours", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
