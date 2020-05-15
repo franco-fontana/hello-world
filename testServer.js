@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/plain");
 
   mongoose
-    .connect("mongodb://172.30.165.24:27017/roc-mongodb", {
+    .connect("mongodb://172.30.165.24:27017/tours", {
       //    .connect("mongodb://127.0.0.1:27017/tours", {
       useNewUrlParser: true,
       useCreateIndex: true,
