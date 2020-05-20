@@ -18,7 +18,6 @@ const server = http.createServer((req, res) => {
         auth: { authsource: "admin" },
         user: "admin",
         pass: "123456",
-        useMongoClient: true,
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
