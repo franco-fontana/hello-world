@@ -18,10 +18,10 @@ const server = http.createServer((req, res) => {
         auth: { authsource: "admin" },
         user: "admin",
         pass: "123456",
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
+        // useNewUrlParser: true,
+        // useCreateIndex: true,
+        // useFindAndModify: false,
+        // useUnifiedTopology: true,
       })
       .catch((err) => console.log(err.reason))
       .then(() => {
