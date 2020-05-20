@@ -12,14 +12,17 @@ const server = http.createServer((req, res) => {
     res.setHeader("Content-Type", "text/plain");
 
     mongoose
-      .connect("mongodb://mongodbhello:27017/tours", {
-        // for local tests
-        //.connect("mongodb://127.0.0.1:27017/tours", {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-      })
+      .connect(
+        "mongodb://admin:$MONGODB_ADMIN_PASSWORD@mongodbhello:27017/tours",
+        {
+          // for local tests
+          //.connect("mongodb://127.0.0.1:27017/tours", {
+          useNewUrlParser: true,
+          useCreateIndex: true,
+          useFindAndModify: false,
+          useUnifiedTopology: true,
+        }
+      )
       .then(() => {
         connOK = true;
       });
