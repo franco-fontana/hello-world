@@ -23,6 +23,7 @@ const server = http.createServer((req, res) => {
           useUnifiedTopology: true,
         }
       )
+      .catch((err) => console.log(err.reason))
       .then(() => {
         connOK = true;
       });
