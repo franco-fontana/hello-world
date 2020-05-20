@@ -15,19 +15,17 @@ const server = http.createServer((req, res) => {
       .connect("mongodb://mongodbhello:27017/tours", {
         // for local tests
         //.connect("mongodb://127.0.0.1:27017/tours", {
-        auth: { authsource: "admin" },
+        auth: { authSource: "admin" },
         user: "admin",
         pass: "123456",
         useNewUrlParser: true,
-        // useCreateIndex: true,
-        // useFindAndModify: false,
         useUnifiedTopology: true,
       })
       .catch((err) => {
         console.log(
           "*** CONNECTION ERROR MONGODB: " + err.reason + " *** " + err
         );
-        throw err;
+        process.exit(1);
       })
       .then(() => {
         connOK = true;
@@ -47,7 +45,7 @@ const server = http.createServer((req, res) => {
           console.log(
             "*** INSERT ERROR TO MONGODB: " + err.reason + " *** " + err
           );
-          throw err;
+          process.exit(1);
         });
       console.log("Record Inserted . . .");
       res.statusCode = 200;
