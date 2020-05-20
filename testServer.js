@@ -23,9 +23,12 @@ const server = http.createServer((req, res) => {
         // useFindAndModify: false,
         useUnifiedTopology: true,
       })
-      .catch((err) =>
-        console.log("*** CONNECTION ERROR MONGODB: " + err.reason)
-      )
+      .catch((err) => {
+        console.log(
+          "*** CONNECTION ERROR MONGODB: " + err.reason + " *** " + err
+        );
+        throw err;
+      })
       .then(() => {
         connOK = true;
       });
@@ -40,9 +43,12 @@ const server = http.createServer((req, res) => {
           name: "Inserting",
           date: new Date(),
         })
-        .catch((err) =>
-          console.log("*** INSERT ERROR TO MONGODB: " + err.reason)
-        );
+        .catch((err) => {
+          console.log(
+            "*** INSERT ERROR TO MONGODB: " + err.reason + " *** " + err
+          );
+          throw err;
+        });
       console.log("Record Inserted . . .");
       res.statusCode = 200;
       res.end("Hello World!!!! " + "***** DB connection successful !!!");
