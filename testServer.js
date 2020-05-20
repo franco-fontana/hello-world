@@ -18,12 +18,14 @@ const server = http.createServer((req, res) => {
         auth: { authsource: "admin" },
         user: "admin",
         pass: "123456",
-        // useNewUrlParser: true,
+        useNewUrlParser: true,
         // useCreateIndex: true,
         // useFindAndModify: false,
-        // useUnifiedTopology: true,
+        useUnifiedTopology: true,
       })
-      .catch((err) => console.log(err.reason))
+      .catch((err) =>
+        console.log("*** CONNECTION ERROR MONGODB: " + err.reason)
+      )
       .then(() => {
         connOK = true;
       });
@@ -31,18 +33,19 @@ const server = http.createServer((req, res) => {
     if (!connOK) {
       res.end("Not ready yet !!!");
     } else {
-      mongoose.connection.useDb("tours").collection("tours").insertOne({
-        name: "Inserting",
-        date: new Date(),
-      });
+      mongoose.connection
+        .useDb("tours")
+        .collection("tours")
+        .insertOne({
+          name: "Inserting",
+          date: new Date(),
+        })
+        .catch((err) =>
+          console.log("*** INSERT ERROR TO MONGODB: " + err.reason)
+        );
       console.log("Record Inserted . . .");
       res.statusCode = 200;
-      res.end(
-        "Hello World!!!! " +
-          "Montevideo - " +
-          "URUGUAY " +
-          "***** DB connection successful !!!"
-      );
+      res.end("Hello World!!!! " + "***** DB connection successful !!!");
     }
   }
 });
